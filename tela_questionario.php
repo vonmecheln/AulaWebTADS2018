@@ -23,7 +23,7 @@ class TelaQuestionario
           <p class="lead">Este é um formulário de perguntas para conhecermos mais sobre você!</p>
         </div>
 
-        <form action="respostas.php" method="get">';
+        <form action="respostas" method="get">';
 
     $qtd = count($perguntas);
     for ($i=0; $i < $qtd; $i++) {
