@@ -3,7 +3,18 @@
 class TelaQuestionario
 {
 
-  function criaQuestionario($perguntas)
+  public function formularioPesquisaPublico()
+  {
+    $perguntas[] = "Você é maior de idade?";
+    $perguntas[] = "Você come carne?";
+    $perguntas[] = "Você pratica esportes?";
+    $perguntas[] = "Você trabalha?";
+    $perguntas[] = "Você tem filhos";
+
+    return $this->criaQuestionario($perguntas);
+  }
+
+  public function criaQuestionario($perguntas)
   {
     $h = '
     <!DOCTYPE html>

@@ -1,17 +1,11 @@
 <?php
 
 if ($_GET['url'] == 'questionario') {
+
   require 'tela_questionario.php';
-
   $t = new TelaQuestionario();
+  echo $t->formularioPesquisaPublico();
 
-  $perguntas[] = "Você é maior de idade?";
-  $perguntas[] = "Você come carne?";
-  $perguntas[] = "Você pratica esportes?";
-  $perguntas[] = "Você trabalha?";
-  $perguntas[] = "Você tem filhos";
-
-  echo $t->criaQuestionario($perguntas);
 } elseif ($_GET['url'] == 'respostas') {
 
   // Constantes de validação
@@ -51,6 +45,7 @@ if ($_GET['url'] == 'questionario') {
 
 else {
   echo "<pre>";
+  echo "URL invalida:<br>";
   print_r($_GET);
 }
 
