@@ -1,15 +1,15 @@
 <?php
 
+include_once 'autoload.php';
+
 if ($_GET['url'] == 'questionario') {
 
-  require 'tela_questionario.php';
   $t = new TelaQuestionario();
   echo $t->formularioPesquisaPublico();
 
 } elseif ($_GET['url'] == 'respostas') {
 
-  require 'verifica_respostas.php';
-  $vr = new VerificaResposta();
+  $vr = new VerificaRespostas();
   echo $vr->VerificaResposta();
 
 }

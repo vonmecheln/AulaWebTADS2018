@@ -3,7 +3,7 @@
 define('NUM_QUESTOES', 5);
 define('MSG_ERRO', 'Preencha corretamente o formulário');
 
-class VerificaResposta
+class VerificaRespostas
 {
 
   public function VerificaResposta()
