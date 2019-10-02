@@ -2,6 +2,10 @@
 
 include_once 'autoload.php';
 
+$con = Conexao::getInstance();
+print_r($con);
+die();
+
 if ($_GET['url'] == 'questionario') {
 
   $t = new TelaQuestionario();
