@@ -17,7 +17,7 @@ class Conexao
     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
-  private function getConexao()
+  public function getConexao()
   {
     return $this->conn;
   }
