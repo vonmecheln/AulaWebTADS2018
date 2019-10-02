@@ -3,8 +3,10 @@
 include_once 'autoload.php';
 
 $daoAluno = new DaoAluno();
-$daoAluno->getAll();
+$lista_de_alunos = $daoAluno->getAll();
 
+echo "<pre>";
+print_r($lista_de_alunos);
 
 die();
 

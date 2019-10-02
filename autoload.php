@@ -14,7 +14,7 @@ function autoloader($classname) {
 
   // $diretorios[] = "visao";
   // $diretorios[] = "controle";
-  // $diretorios[] = "modelo";
+   $diretorios[] = "model";
    $diretorios[] = "dao";
   //
   foreach ($diretorios as $dir) {
