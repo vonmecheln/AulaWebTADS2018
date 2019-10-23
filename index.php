@@ -21,7 +21,6 @@ function carregaUrl($url = DEFAULT_HOMEPAGE){
   //home/principal
   //produto/listar/1
   $partes_url = explode('/', $url);
-  echo("<pre>"); print_r($partes_url);
   if ( (count($partes_url) < 2)
     || ( strlen(trim($partes_url[0])) == 0)
     || ( strlen(trim($partes_url[1])) == 0) ){
@@ -29,6 +28,31 @@ function carregaUrl($url = DEFAULT_HOMEPAGE){
     carregaUrl();
     return;
   }
+
+
+  //normaliza os nomes e separa os parametros
+  $param = [];
+  foreach($partes_url as $i => $p){
+
+    if ($i < 2){
+      //Os dois primeiros argumentos serão normalizados para o nome de Classes e Métodos
+      $norm = str_replace("_", " ", $p); // Separação de palavras
+      $norm = strtolower($norm); // tudo para minúsculo
+      $norm = ucwords($norm); // Primeira letra em Maiúsculo de cada palavra
+      $norm = str_replace(" ", "", $norm); // Une as palavras
+      $partes_url[$i] = $norm;
+      //Ex.:
+      //produtos/listar_ativos -> Produtos|ListarAtivos
+      //cArrInho_dE_cOMpraS/CANCELAR_tuDO -> CarrinhosDeCompras|CancelarTudo
+    } else {
+      $param[] = $p;
+    }
+
+  }
+
+
+  echo("<pre>"); print_r($partes_url);print_r($param);
+
 
 
 
