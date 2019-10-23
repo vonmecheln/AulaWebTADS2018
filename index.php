@@ -5,7 +5,21 @@ include_once 'autoload.php';
 
 //recupera a url digitada
 $u = isset($_GET['url']) ? trim($_GET['url']) : false;
+carregaUrl($u);
 
+function carregaUrl($url = DEFAULT_HOMEPAGE){
+
+  //Se não foi pedido uma url é função é chamada vazia para carregar a DEFAULT_HOMEPAGE
+  if (!$url) {
+    carregaUrl();
+    return;
+  }
+
+  print_r($url);
+
+
+
+}
 
 
 // $daoAluno = new DaoAluno();
