@@ -3,6 +3,9 @@
 include_once 'config.php';
 include_once 'autoload.php';
 
+if( ! session_id()) @ session_start();
+$_SESSION['p404']= '';
+
 //recupera a url digitada
 $u = isset($_GET['url']) ? trim($_GET['url']) : false;
 carregaUrl($u);
@@ -24,7 +27,7 @@ function carregaUrl($url = DEFAULT_HOMEPAGE){
   if ( (count($partes_url) < 2)
     || ( strlen(trim($partes_url[0])) == 0)
     || ( strlen(trim($partes_url[1])) == 0) ){
-      echo"url inválida";
+    $_SESSION['p404'] = $url;
     carregaUrl();
     return;
   }
@@ -53,7 +56,7 @@ function carregaUrl($url = DEFAULT_HOMEPAGE){
 
   //Verificação se a Classe existe
   if (!class_exists($partes_url[0])) {
-    echo"url inválida";
+    $_SESSION['p404'] = $url;
     carregaUrl();
     return;
   }
@@ -61,40 +64,17 @@ function carregaUrl($url = DEFAULT_HOMEPAGE){
   //Verificação se o Método existe
   $classe = new $partes_url[0]();
   if (!method_exists($classe, $partes_url[1])) {
-    echo"url inválida";
+    $_SESSION['p404'] = $url;
     carregaUrl();
     return;
   }
   $metodo = $partes_url[1];
+
+  if($_SESSION['p404'])
+    header("HTTP/1.0 404");
+    
   $classe->$metodo(); //Finalmente executa a classe e o método solicitado, enviando os parametros
 
 }
-
-
-// $daoAluno = new DaoAluno();
-// $lista_de_alunos = $daoAluno->getAll();
-//
-// echo "<pre>";
-// print_r($lista_de_alunos);
-//
-// die();
-//
-// if ($_GET['url'] == 'questionario') {
-//
-//   $t = new TelaQuestionario();
-//   echo $t->formularioPesquisaPublico();
-//
-// } elseif ($_GET['url'] == 'respostas') {
-//
-//   $vr = new VerificaRespostas();
-//   echo $vr->VerificaResposta();
-//
-// }
-//
-// else {
-//   echo "<pre>";
-//   echo "URL invalida:<br>";
-//   print_r($_GET);
-// }
 
  ?>
