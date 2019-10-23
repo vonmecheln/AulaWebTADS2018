@@ -10,8 +10,8 @@ function autoloader($classname) {
     return;
   }
 
-  // $diretorios[] = "visao";
-  // $diretorios[] = "controle";
+   $diretorios[] = "view";
+   $diretorios[] = "control";
    $diretorios[] = "model";
    $diretorios[] = "dao";
   //

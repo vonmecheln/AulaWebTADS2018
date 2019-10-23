@@ -51,11 +51,22 @@ function carregaUrl($url = DEFAULT_HOMEPAGE){
   }
 
 
-  echo("<pre>"); print_r($partes_url);print_r($param);
+  //Verificação se a Classe existe
+  if (!class_exists($partes_url[0])) {
+    echo"url inválida";
+    carregaUrl();
+    return;
+  }
 
-
-
-
+  //Verificação se o Método existe
+  $classe = new $partes_url[0]();
+  if (!method_exists($classe, $partes_url[1])) {
+    echo"url inválida";
+    carregaUrl();
+    return;
+  }
+  $metodo = $partes_url[1];
+  $classe->$metodo(); //Finalmente executa a classe e o método solicitado, enviando os parametros
 
 }
 
