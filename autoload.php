@@ -5,12 +5,10 @@ spl_autoload_register("autoloader");
 
 function autoloader($classname) {
 
-  // $filename = strtolower($classname) .".php";
-  // if (file_exists("$filename")) {
-  //   include_once($filename);
-  //   return;
-  // }
-
+  if($classname == 'Smarty'){
+    require_once(SMARTY_DIR . 'Smarty.class.php');
+    return;
+  }
 
   // $diretorios[] = "visao";
   // $diretorios[] = "controle";
