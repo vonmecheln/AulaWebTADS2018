@@ -15,7 +15,21 @@ function carregaUrl($url = DEFAULT_HOMEPAGE){
     return;
   }
 
-  print_r($url);
+  //Tratamento da URL: Os dois argumentos serão a Classe e o Método os demais são parametros
+  //Os dois primeiros são obrigatórios
+  //Ex:
+  //home/principal
+  //produto/listar/1
+  $partes_url = explode('/', $url);
+  echo("<pre>"); print_r($partes_url);
+  if ( (count($partes_url) < 2)
+    || ( strlen(trim($partes_url[0])) == 0)
+    || ( strlen(trim($partes_url[1])) == 0) ){
+      echo"url inválida";
+    carregaUrl();
+    return;
+  }
+
 
 
 
