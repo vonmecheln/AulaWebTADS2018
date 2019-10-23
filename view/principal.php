@@ -14,6 +14,7 @@ class Principal
     $smarty->force_compile = true;
 
 
+    $smarty->assign('sd', SISTEMA_DIR);
     $smarty->assign('titulo', 'Plantas Prontas');
     $smarty->assign('descricao', 'Projetos de plantas de casas prontas para construção');
     $smarty->assign('p404', $_SESSION['p404']);
