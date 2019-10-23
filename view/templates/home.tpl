@@ -6,7 +6,7 @@
   <meta name="description" content="{$descricao}" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="{$sd}/recursos/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="{$sd}recursos/bootstrap/css/bootstrap.css">
   <script src="{$sd}recursos/jquery/jquery.min.js"></script>
   <script src="{$sd}recursos/popper/popper.min.js"></script>
   <script src="{$sd}recursos/bootstrap/js/bootstrap.min.js"></script>
