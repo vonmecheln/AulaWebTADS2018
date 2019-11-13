@@ -12,6 +12,21 @@
   <script src="{$sd}recursos/popper/popper.min.js"></script>
   <script src="{$sd}recursos/bootstrap/js/bootstrap.min.js"></script>
 
+  <script type="text/javascript">
+  function somaVenda() {
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange =
+    function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  console.log(this.responseText);
+              }
+          }
+    xmlhttp.open("GET", "http://192.168.56.105/web/AulaWebTADS2018/controlvenda/inc", true);
+    xmlhttp.send();
+
+  }
+  </script>
 </head>
 
 <body>
