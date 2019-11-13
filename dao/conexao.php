@@ -5,7 +5,7 @@ class Conexao
   private $servername = "localhost";
   private $username = "adminer";
   private $password = "ABC123**";
-  private $dbname = "escola";
+  private $dbname = "apartamento";
   private $conn;
 
   private function __construct()
