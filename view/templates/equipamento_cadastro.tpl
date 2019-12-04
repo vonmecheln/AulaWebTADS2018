@@ -13,30 +13,36 @@
   <script src="{$sd}recursos/bootstrap/js/bootstrap.min.js"></script>
 
   <script type="text/javascript">
-  function somaVenda() {
 
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange =
-    function() {
-              if (this.readyState == 4 && this.status == 200) {
-                  console.log(this.responseText);
-              }
-          }
-    xmlhttp.open("GET", "http://192.168.56.105/web/AulaWebTADS2018/controlvenda/inc", true);
-    xmlhttp.send();
+  $(function() {
+  //twitter bootstrap script
+   $("button#submit").click(function(){
+     $.ajax({
+       type: "POST",
+       url:'{$sd}controleequipamento/salvar',
+       data: $("#form_equipamento").serialize(),
+       success: function(msg){
+         alert(msg);
+       },
+       error: function(){
+         alert("failure");
+       }
+    });
+   });
+  });
 
-  }
   </script>
 </head>
 
 <body>
   <div class="container">
 
-  <form>
+  <form class="form-horizontal" id="form_equipamento">
+
   <fieldset class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-    <small class="text-muted">We'll never share your email with anyone else.</small>
+    <input name="exampleInputEmail1" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+    <small class="text-muted">Well never share your email with anyone else.</small>
   </fieldset>
   <fieldset class="form-group">
     <label for="exampleInputPassword1">Password</label>
