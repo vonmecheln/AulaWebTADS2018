@@ -14,35 +14,32 @@
 
   <script type="text/javascript">
 
-  $(function() {
-  //twitter bootstrap script
-   $("button#submit").click(function(){
-     $.ajax({
-       type: "POST",
-       url:'{$sd}controleequipamento/salvar',
-       data: $("#form_equipamento").serialize(),
-       success: function(msg){
-         alert(msg);
-       },
-       error: function(){
-         alert("failure");
-       }
-    });
-   });
-  });
+  function formSubmit(){
 
+    $.ajax({
+      type: "POST",
+      url:'{$sd}controleequipamento/salvar',
+      data: $("#form_equipamento").serialize(),
+      success: function(msg){
+        alert(msg);
+      },
+      error: function(){
+        alert("failure");
+      }
+   });
+  }
   </script>
 </head>
 
 <body>
   <div class="container">
 
-  <form class="form-horizontal" id="form_equipamento">
+  <form class="form-horizontal" id="form_equipamento"  onsubmit="formSubmit(); return false;">
 
   <fieldset class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input name="exampleInputEmail1" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-    <small class="text-muted">Well never share your email with anyone else.</small>
+    <small class="text-muted">We'll never share your email with anyone else.</small>
   </fieldset>
   <fieldset class="form-group">
     <label for="exampleInputPassword1">Password</label>
