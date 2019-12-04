@@ -24,7 +24,7 @@
         alert(msg);
       },
       error: function(){
-        alert("failure");
+        alert("falhou");
       }
    });
   }
